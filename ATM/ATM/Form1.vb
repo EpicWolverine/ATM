@@ -7,49 +7,8 @@ Public Class Form1
     Friend WithEvents Button1 As System.Windows.Forms.Button
 
     Dim ResourceFilePath As String
-    Dim CoolTransition As Boolean = False
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Label2.Location = New Point(-156, 157)
-        txtBankTotal.Location = New Point(-101, 157)
-        txtWalletTotal.Location = New Point(-101, 157)
-        txtTotal.Location = New Point(-101, 157)
-    End Sub
-
-    Private Sub Form1_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
-
-    End Sub
-
-    'Private Sub btnTopTotal_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles btnTopTotal.Paint
-    '    Dim g As Graphics = e.Graphics
-    '    ControlPaint.DrawBorder(g, e.ClipRectangle, Color.Blue,
-    '    ButtonBorderStyle.Solid)
-    'End Sub
-
-    'Top Buttons
-    Private Sub btnTopTotal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTopTotal.Click
-        If CoolTransition = True Then 'see if controls slide in or just appear
-            If Label2.Location.X = 92 Then
-                Exit Sub
-            ElseIf Label2.Location.X = -156 Then
-                TransitionIn(1)
-            End If
-        Else
-            'Hideing
-            Label1.Visible = False
-            HideDeposit()
-            HideWithdrawal()
-            HideHistory()
-            'Showing
-            Label2.Location = New Point(92, 157)
-            txtBankTotal.Location = New Point(147, 157)
-            txtWalletTotal.Location = New Point(147, 183)
-            txtTotal.Location = New Point(147, 225)
-            ShowTotal()
-        End If
-
-       
-
         FilePath()
         Dim a, b As String
         Dim sr As New System.IO.StreamReader(ResourceFilePath & "\total.txt")
@@ -164,27 +123,7 @@ Public Class Form1
         txtTotal.Text = "$" & s.ToString
     End Sub
 
-    Private Sub btnTopDeposit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTopDeposit.Click
-        'Hideing
-        Label1.Visible = False
-        HideTotal()
-        HideWithdrawal()
-        HideHistory()
-        'Showing
-        ShowDeposit()
-    End Sub
-
-    Private Sub btnTopWithdrawal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTopWithdrawal.Click
-        'Hideing
-        Label1.Visible = False
-        HideTotal()
-        HideDeposit()
-        HideHistory()
-        'Showing
-        ShowWithdrawal()
-    End Sub
-
-    Private Sub btnTopHistory_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnTopHistory.Click
+    Private Sub Form1_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
 
     End Sub
 
@@ -240,14 +179,14 @@ Public Class Form1
     End Sub
 
     'Withdrawal
-    Private Sub btnWithdrawal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnWithdrawal.Click
-        If txtWithdrawal.Text = "Withdrawed!" Then
+    Private Sub btnWithdrawal_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        If txtWithdraw.Text = "Withdrawed!" Then
             MsgBox("Ummmm....." & vbCrLf & "What should I withdraw?")
             Exit Sub
         End If
 
         Dim s As System.Text.StringBuilder
-        s = New System.Text.StringBuilder(txtWithdrawal.Text)
+        s = New System.Text.StringBuilder(txtWithdraw.Text)
         s.Replace("$", "") 'remove $ if there is one
 
         'get values from file
@@ -258,13 +197,13 @@ Public Class Form1
         b = sr.ReadLine 'Wallet
         sr.Close()
 
-        If rbBankWithdrawal.Checked = True Then 'if Withdrawing in the bank
+        If rbBankWithdraw.Checked = True Then 'if Withdrawing in the bank
             Dim c As Single = CSng(a) - CSng(s.ToString) 'take out the cash
             Dim sw As New System.IO.StreamWriter(ResourceFilePath & "\total.txt") 'write to file
             sw.WriteLine(c.ToString)
             sw.WriteLine(b.ToString)
             sw.Close()
-        ElseIf rbWalletWithdrawal.Checked = True Then 'if Withdrawing in the wallet
+        ElseIf rbWalletWithdraw.Checked = True Then 'if Withdrawing in the wallet
             Dim c As Single = CSng(b) - CSng(s.ToString) 'take out the cash
             Dim sw As New System.IO.StreamWriter(ResourceFilePath & "\total.txt") 'write to file
             sw.WriteLine(a.ToString)
@@ -272,92 +211,13 @@ Public Class Form1
             sw.Close()
         End If
 
-        txtWithdrawal.Text = "Withdrawed!"
+        txtWithdraw.Text = "Withdrawed!"
         Timer1.Start()
     End Sub
 
     'History
 
 
-    'Hiding
-    Sub HideTotal()
-        Label2.Visible = False
-        txtBankTotal.Visible = False
-        txtWalletTotal.Visible = False
-        txtTotal.Visible = False
-    End Sub
-
-    Sub HideDeposit()
-        rbBankDeposit.Visible = False
-        rbWalletDeposit.Visible = False
-        txtDeposit.Visible = False
-        btnDeposit.Visible = False
-        txtDeposit.Text = ""
-    End Sub
-
-    Sub HideWithdrawal()
-        rbBankWithdrawal.Visible = False
-        rbWalletWithdrawal.Visible = False
-        txtWithdrawal.Visible = False
-        btnWithdrawal.Visible = False
-        txtWithdrawal.Text = ""
-    End Sub
-
-    Sub HideHistory()
-
-    End Sub
-
-    'Showing
-    Sub ShowTotal()
-        Label2.Visible = True
-        txtBankTotal.Visible = True
-        txtWalletTotal.Visible = True
-        txtTotal.Visible = True
-    End Sub
-
-    Sub ShowDeposit()
-        rbBankDeposit.Visible = True
-        rbWalletDeposit.Visible = True
-        txtDeposit.Visible = True
-        btnDeposit.Visible = True
-    End Sub
-
-    Sub ShowWithdrawal()
-        rbBankWithdrawal.Visible = True
-        rbWalletWithdrawal.Visible = True
-        txtWithdrawal.Visible = True
-        btnWithdrawal.Visible = True
-    End Sub
-
-    Sub ShowHistory()
-
-    End Sub
-
-    'Functions
-    Sub TransitionIn(ByVal PanelNumber As Byte)
-        Dim x As Integer = Label1.Location.X
-        Do Until x = 350
-            x += 1
-            Label1.Location = New Point(x, Label1.Location.Y)
-        Loop
-
-        If PanelNumber = 1 Then
-            Dim y As Integer = Label2.Location.X
-            Dim z As Integer = txtBankTotal.Location.X
-            Do Until y = 92
-                y += 4
-                z += 4
-                Label2.Location = New Point(y, Label2.Location.Y)
-                txtBankTotal.Location = New Point(z, txtBankTotal.Location.Y)
-                txtWalletTotal.Location = New Point(z, txtWalletTotal.Location.Y)
-                txtTotal.Location = New Point(z, txtTotal.Location.Y)
-            Loop
-        End If
-    End Sub
-
-    Sub TransitionOut()
-
-    End Sub
 
     Sub FilePath()
         ' Determine the Resource File Path
@@ -372,7 +232,7 @@ Public Class Form1
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         txtDeposit.Text = ""
-        txtWithdrawal.Text = ""
+        txtWithdraw.Text = ""
         Timer1.Stop()
     End Sub
 End Class

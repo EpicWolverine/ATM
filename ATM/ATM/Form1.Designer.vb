@@ -28,11 +28,6 @@ Partial Class Form1
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UDontNeedNoHelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.btnTopTotal = New System.Windows.Forms.Button()
-        Me.btnTopDeposit = New System.Windows.Forms.Button()
-        Me.btnTopWithdrawal = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnTopHistory = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtTotal = New System.Windows.Forms.TextBox()
         Me.txtWalletTotal = New System.Windows.Forms.TextBox()
@@ -41,11 +36,26 @@ Partial Class Form1
         Me.rbWalletDeposit = New System.Windows.Forms.RadioButton()
         Me.txtDeposit = New System.Windows.Forms.TextBox()
         Me.btnDeposit = New System.Windows.Forms.Button()
-        Me.btnWithdrawal = New System.Windows.Forms.Button()
-        Me.txtWithdrawal = New System.Windows.Forms.TextBox()
-        Me.rbWalletWithdrawal = New System.Windows.Forms.RadioButton()
-        Me.rbBankWithdrawal = New System.Windows.Forms.RadioButton()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.rbBankWithdraw = New System.Windows.Forms.RadioButton()
+        Me.btnWithdrawal = New System.Windows.Forms.Button()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.txtWithdraw = New System.Windows.Forms.TextBox()
+        Me.rbWalletWithdraw = New System.Windows.Forms.RadioButton()
+        Me.RadioButton4 = New System.Windows.Forms.RadioButton()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TabControl1.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
         Me.SuspendLayout()
         '
         'FileToolStripMenuItem
@@ -80,58 +90,11 @@ Partial Class Form1
         Me.UDontNeedNoHelpToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
         Me.UDontNeedNoHelpToolStripMenuItem.Text = "u don't need no help"
         '
-        'btnTopTotal
-        '
-        Me.btnTopTotal.Location = New System.Drawing.Point(10, 12)
-        Me.btnTopTotal.Name = "btnTopTotal"
-        Me.btnTopTotal.Size = New System.Drawing.Size(75, 23)
-        Me.btnTopTotal.TabIndex = 1
-        Me.btnTopTotal.Text = "Total"
-        Me.btnTopTotal.UseVisualStyleBackColor = True
-        '
-        'btnTopDeposit
-        '
-        Me.btnTopDeposit.Location = New System.Drawing.Point(91, 12)
-        Me.btnTopDeposit.Name = "btnTopDeposit"
-        Me.btnTopDeposit.Size = New System.Drawing.Size(75, 23)
-        Me.btnTopDeposit.TabIndex = 2
-        Me.btnTopDeposit.Text = "Deposit"
-        Me.btnTopDeposit.UseVisualStyleBackColor = True
-        '
-        'btnTopWithdrawal
-        '
-        Me.btnTopWithdrawal.Location = New System.Drawing.Point(172, 12)
-        Me.btnTopWithdrawal.Name = "btnTopWithdrawal"
-        Me.btnTopWithdrawal.Size = New System.Drawing.Size(75, 23)
-        Me.btnTopWithdrawal.TabIndex = 3
-        Me.btnTopWithdrawal.Text = "Withdrawal"
-        Me.btnTopWithdrawal.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Showcard Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(54, 181)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(231, 40)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Welcome to ATM!" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Your digital checkbook!"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'btnTopHistory
-        '
-        Me.btnTopHistory.Location = New System.Drawing.Point(254, 11)
-        Me.btnTopHistory.Name = "btnTopHistory"
-        Me.btnTopHistory.Size = New System.Drawing.Size(75, 23)
-        Me.btnTopHistory.TabIndex = 5
-        Me.btnTopHistory.Text = "History"
-        Me.btnTopHistory.UseVisualStyleBackColor = True
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Showcard Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(92, 157)
+        Me.Label2.Location = New System.Drawing.Point(79, 41)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(49, 84)
         Me.Label2.TabIndex = 9
@@ -140,7 +103,8 @@ Partial Class Form1
         '
         'txtTotal
         '
-        Me.txtTotal.Location = New System.Drawing.Point(147, 225)
+        Me.txtTotal.BackColor = System.Drawing.Color.White
+        Me.txtTotal.Location = New System.Drawing.Point(134, 109)
         Me.txtTotal.Name = "txtTotal"
         Me.txtTotal.ReadOnly = True
         Me.txtTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes
@@ -149,7 +113,8 @@ Partial Class Form1
         '
         'txtWalletTotal
         '
-        Me.txtWalletTotal.Location = New System.Drawing.Point(147, 183)
+        Me.txtWalletTotal.BackColor = System.Drawing.Color.White
+        Me.txtWalletTotal.Location = New System.Drawing.Point(134, 67)
         Me.txtWalletTotal.Name = "txtWalletTotal"
         Me.txtWalletTotal.ReadOnly = True
         Me.txtWalletTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes
@@ -158,7 +123,8 @@ Partial Class Form1
         '
         'txtBankTotal
         '
-        Me.txtBankTotal.Location = New System.Drawing.Point(147, 157)
+        Me.txtBankTotal.BackColor = System.Drawing.Color.White
+        Me.txtBankTotal.Location = New System.Drawing.Point(134, 41)
         Me.txtBankTotal.Name = "txtBankTotal"
         Me.txtBankTotal.ReadOnly = True
         Me.txtBankTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes
@@ -168,129 +134,227 @@ Partial Class Form1
         'rbBankDeposit
         '
         Me.rbBankDeposit.AutoSize = True
-        Me.rbBankDeposit.Location = New System.Drawing.Point(114, 165)
+        Me.rbBankDeposit.Location = New System.Drawing.Point(101, 49)
         Me.rbBankDeposit.Name = "rbBankDeposit"
         Me.rbBankDeposit.Size = New System.Drawing.Size(50, 17)
         Me.rbBankDeposit.TabIndex = 10
         Me.rbBankDeposit.Text = "Bank"
         Me.rbBankDeposit.UseVisualStyleBackColor = True
-        Me.rbBankDeposit.Visible = False
         '
         'rbWalletDeposit
         '
         Me.rbWalletDeposit.AutoSize = True
         Me.rbWalletDeposit.Checked = True
-        Me.rbWalletDeposit.Location = New System.Drawing.Point(170, 165)
+        Me.rbWalletDeposit.Location = New System.Drawing.Point(157, 49)
         Me.rbWalletDeposit.Name = "rbWalletDeposit"
         Me.rbWalletDeposit.Size = New System.Drawing.Size(55, 17)
         Me.rbWalletDeposit.TabIndex = 11
         Me.rbWalletDeposit.TabStop = True
         Me.rbWalletDeposit.Text = "Wallet"
         Me.rbWalletDeposit.UseVisualStyleBackColor = True
-        Me.rbWalletDeposit.Visible = False
         '
         'txtDeposit
         '
-        Me.txtDeposit.Location = New System.Drawing.Point(114, 189)
+        Me.txtDeposit.Location = New System.Drawing.Point(101, 73)
         Me.txtDeposit.Name = "txtDeposit"
         Me.txtDeposit.Size = New System.Drawing.Size(111, 20)
         Me.txtDeposit.TabIndex = 12
-        Me.txtDeposit.Visible = False
         '
         'btnDeposit
         '
-        Me.btnDeposit.Location = New System.Drawing.Point(114, 215)
+        Me.btnDeposit.Location = New System.Drawing.Point(101, 99)
         Me.btnDeposit.Name = "btnDeposit"
         Me.btnDeposit.Size = New System.Drawing.Size(111, 23)
         Me.btnDeposit.TabIndex = 13
         Me.btnDeposit.Text = "Deposit Amount"
         Me.btnDeposit.UseVisualStyleBackColor = True
-        Me.btnDeposit.Visible = False
-        '
-        'btnWithdrawal
-        '
-        Me.btnWithdrawal.Location = New System.Drawing.Point(114, 215)
-        Me.btnWithdrawal.Name = "btnWithdrawal"
-        Me.btnWithdrawal.Size = New System.Drawing.Size(111, 23)
-        Me.btnWithdrawal.TabIndex = 17
-        Me.btnWithdrawal.Text = "Withdraw Amount"
-        Me.btnWithdrawal.UseVisualStyleBackColor = True
-        Me.btnWithdrawal.Visible = False
-        '
-        'txtWithdrawal
-        '
-        Me.txtWithdrawal.Location = New System.Drawing.Point(114, 189)
-        Me.txtWithdrawal.Name = "txtWithdrawal"
-        Me.txtWithdrawal.Size = New System.Drawing.Size(111, 20)
-        Me.txtWithdrawal.TabIndex = 16
-        Me.txtWithdrawal.Visible = False
-        '
-        'rbWalletWithdrawal
-        '
-        Me.rbWalletWithdrawal.AutoSize = True
-        Me.rbWalletWithdrawal.Checked = True
-        Me.rbWalletWithdrawal.Location = New System.Drawing.Point(170, 165)
-        Me.rbWalletWithdrawal.Name = "rbWalletWithdrawal"
-        Me.rbWalletWithdrawal.Size = New System.Drawing.Size(55, 17)
-        Me.rbWalletWithdrawal.TabIndex = 15
-        Me.rbWalletWithdrawal.TabStop = True
-        Me.rbWalletWithdrawal.Text = "Wallet"
-        Me.rbWalletWithdrawal.UseVisualStyleBackColor = True
-        Me.rbWalletWithdrawal.Visible = False
-        '
-        'rbBankWithdrawal
-        '
-        Me.rbBankWithdrawal.AutoSize = True
-        Me.rbBankWithdrawal.Location = New System.Drawing.Point(114, 165)
-        Me.rbBankWithdrawal.Name = "rbBankWithdrawal"
-        Me.rbBankWithdrawal.Size = New System.Drawing.Size(50, 17)
-        Me.rbBankWithdrawal.TabIndex = 14
-        Me.rbBankWithdrawal.Text = "Bank"
-        Me.rbBankWithdrawal.UseVisualStyleBackColor = True
-        Me.rbBankWithdrawal.Visible = False
         '
         'Timer1
         '
         Me.Timer1.Interval = 5000
         '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Controls.Add(Me.TabPage3)
+        Me.TabControl1.Controls.Add(Me.TabPage4)
+        Me.TabControl1.HotTrack = True
+        Me.TabControl1.ItemSize = New System.Drawing.Size(79, 18)
+        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(320, 196)
+        Me.TabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
+        Me.TabControl1.TabIndex = 18
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.Label2)
+        Me.TabPage1.Controls.Add(Me.txtBankTotal)
+        Me.TabPage1.Controls.Add(Me.txtWalletTotal)
+        Me.TabPage1.Controls.Add(Me.txtTotal)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(312, 170)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "Total"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.rbBankDeposit)
+        Me.TabPage2.Controls.Add(Me.rbWalletDeposit)
+        Me.TabPage2.Controls.Add(Me.txtDeposit)
+        Me.TabPage2.Controls.Add(Me.btnDeposit)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(312, 170)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Deposit"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'TabPage3
+        '
+        Me.TabPage3.Controls.Add(Me.rbBankWithdraw)
+        Me.TabPage3.Controls.Add(Me.btnWithdrawal)
+        Me.TabPage3.Controls.Add(Me.RadioButton2)
+        Me.TabPage3.Controls.Add(Me.txtWithdraw)
+        Me.TabPage3.Controls.Add(Me.rbWalletWithdraw)
+        Me.TabPage3.Controls.Add(Me.RadioButton4)
+        Me.TabPage3.Controls.Add(Me.TextBox2)
+        Me.TabPage3.Controls.Add(Me.Button3)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(312, 170)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Withdraw"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'rbBankWithdraw
+        '
+        Me.rbBankWithdraw.AutoSize = True
+        Me.rbBankWithdraw.Location = New System.Drawing.Point(101, 49)
+        Me.rbBankWithdraw.Name = "rbBankWithdraw"
+        Me.rbBankWithdraw.Size = New System.Drawing.Size(50, 17)
+        Me.rbBankWithdraw.TabIndex = 22
+        Me.rbBankWithdraw.Text = "Bank"
+        Me.rbBankWithdraw.UseVisualStyleBackColor = True
+        '
+        'btnWithdrawal
+        '
+        Me.btnWithdrawal.Location = New System.Drawing.Point(101, 99)
+        Me.btnWithdrawal.Name = "btnWithdrawal"
+        Me.btnWithdrawal.Size = New System.Drawing.Size(111, 23)
+        Me.btnWithdrawal.TabIndex = 25
+        Me.btnWithdrawal.Text = "Withdraw Amount"
+        Me.btnWithdrawal.UseVisualStyleBackColor = True
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(101, 49)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(50, 17)
+        Me.RadioButton2.TabIndex = 18
+        Me.RadioButton2.Text = "Bank"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'txtWithdraw
+        '
+        Me.txtWithdraw.Location = New System.Drawing.Point(101, 73)
+        Me.txtWithdraw.Name = "txtWithdraw"
+        Me.txtWithdraw.Size = New System.Drawing.Size(111, 20)
+        Me.txtWithdraw.TabIndex = 24
+        '
+        'rbWalletWithdraw
+        '
+        Me.rbWalletWithdraw.AutoSize = True
+        Me.rbWalletWithdraw.Checked = True
+        Me.rbWalletWithdraw.Location = New System.Drawing.Point(157, 49)
+        Me.rbWalletWithdraw.Name = "rbWalletWithdraw"
+        Me.rbWalletWithdraw.Size = New System.Drawing.Size(55, 17)
+        Me.rbWalletWithdraw.TabIndex = 19
+        Me.rbWalletWithdraw.TabStop = True
+        Me.rbWalletWithdraw.Text = "Wallet"
+        Me.rbWalletWithdraw.UseVisualStyleBackColor = True
+        '
+        'RadioButton4
+        '
+        Me.RadioButton4.AutoSize = True
+        Me.RadioButton4.Checked = True
+        Me.RadioButton4.Location = New System.Drawing.Point(157, 49)
+        Me.RadioButton4.Name = "RadioButton4"
+        Me.RadioButton4.Size = New System.Drawing.Size(55, 17)
+        Me.RadioButton4.TabIndex = 23
+        Me.RadioButton4.TabStop = True
+        Me.RadioButton4.Text = "Wallet"
+        Me.RadioButton4.UseVisualStyleBackColor = True
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(101, 73)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(111, 20)
+        Me.TextBox2.TabIndex = 20
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(101, 99)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(111, 23)
+        Me.Button3.TabIndex = 21
+        Me.Button3.Text = "Deposit Amount"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'TabPage4
+        '
+        Me.TabPage4.Controls.Add(Me.TextBox3)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(312, 170)
+        Me.TabPage4.TabIndex = 3
+        Me.TabPage4.Text = "History"
+        Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(3, 6)
+        Me.TextBox3.Multiline = True
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.TextBox3.Size = New System.Drawing.Size(303, 161)
+        Me.TextBox3.TabIndex = 0
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(339, 403)
-        Me.Controls.Add(Me.btnWithdrawal)
-        Me.Controls.Add(Me.txtWithdrawal)
-        Me.Controls.Add(Me.rbWalletWithdrawal)
-        Me.Controls.Add(Me.rbBankWithdrawal)
-        Me.Controls.Add(Me.btnDeposit)
-        Me.Controls.Add(Me.txtDeposit)
-        Me.Controls.Add(Me.rbWalletDeposit)
-        Me.Controls.Add(Me.rbBankDeposit)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.txtTotal)
-        Me.Controls.Add(Me.txtWalletTotal)
-        Me.Controls.Add(Me.txtBankTotal)
-        Me.Controls.Add(Me.btnTopHistory)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.btnTopWithdrawal)
-        Me.Controls.Add(Me.btnTopDeposit)
-        Me.Controls.Add(Me.btnTopTotal)
+        Me.ClientSize = New System.Drawing.Size(318, 195)
+        Me.Controls.Add(Me.TabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
         Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ATM"
+        Me.TabControl1.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
+        Me.TabPage1.PerformLayout()
+        Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
+        Me.TabPage3.ResumeLayout(False)
+        Me.TabPage3.PerformLayout()
+        Me.TabPage4.ResumeLayout(False)
+        Me.TabPage4.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents FileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents btnTopTotal As System.Windows.Forms.Button
-    Friend WithEvents btnTopDeposit As System.Windows.Forms.Button
-    Friend WithEvents btnTopWithdrawal As System.Windows.Forms.Button
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents btnTopHistory As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents txtTotal As System.Windows.Forms.TextBox
     Friend WithEvents txtWalletTotal As System.Windows.Forms.TextBox
@@ -302,10 +366,20 @@ Partial Class Form1
     Friend WithEvents rbWalletDeposit As System.Windows.Forms.RadioButton
     Friend WithEvents txtDeposit As System.Windows.Forms.TextBox
     Friend WithEvents btnDeposit As System.Windows.Forms.Button
-    Friend WithEvents btnWithdrawal As System.Windows.Forms.Button
-    Friend WithEvents txtWithdrawal As System.Windows.Forms.TextBox
-    Friend WithEvents rbWalletWithdrawal As System.Windows.Forms.RadioButton
-    Friend WithEvents rbBankWithdrawal As System.Windows.Forms.RadioButton
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
+    Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
+    Friend WithEvents rbBankWithdraw As System.Windows.Forms.RadioButton
+    Friend WithEvents btnWithdrawal As System.Windows.Forms.Button
+    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
+    Friend WithEvents txtWithdraw As System.Windows.Forms.TextBox
+    Friend WithEvents rbWalletWithdraw As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButton4 As System.Windows.Forms.RadioButton
+    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
 
 End Class

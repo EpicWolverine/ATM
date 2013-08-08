@@ -49,7 +49,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>6YyuoWQsIQbnnxGaQNxPUDCaROY=</dsig:DigestValue>
+        <dsig:DigestValue>m8I1O288IfA42dvYHJvrwH55QCA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,13 +62,13 @@
       <dsig:DigestValue>2jmj7l5rSw0yVb/vlWAYkK/YBwk=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\total.txt" size="15">
+  <file name="Resources\total.txt" size="14">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>1JTwkY5MrC6sUh7GxotozOyGBq8=</dsig:DigestValue>
+      <dsig:DigestValue>EhvFPI/5Crt9ID+WBKPNKMX9/2k=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
